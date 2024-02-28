@@ -51,7 +51,8 @@ form button {
     cursor: pointer;
 }
 
-.addFormSubmit input, .addFormSubmit button{
+.addFormSubmit input,
+.addFormSubmit button {
     width: 400px;
 }
 
@@ -268,20 +269,20 @@ form button {
     width: calc((100% - 40px) / 4);
 }
 
-.weekData_type7 > div{
+.weekData_type7>div {
     width: 50%;
 }
 
-.weekData_type7 > div > select{
+.weekData_type7>div>select {
     display: flex;
     width: 100%;
 }
 
-.weekData_type7 > div > select:last-child{
-margin-top: -1px;
+.weekData_type7>div>select:last-child {
+    margin-top: -1px;
 }
 
-.weekData_type7 > select{
+.weekData_type7>select {
     display: flex;
     width: 50%;
     height: 100%;
@@ -293,20 +294,20 @@ margin-top: -1px;
     width: calc((100% - 40px) / 4);
 }
 
-.weekData_type8 > div{
+.weekData_type8>div {
     width: 50%;
 }
 
-.weekData_type8 > div > select{
+.weekData_type8>div>select {
     display: flex;
     width: 100%;
 }
 
-.weekData_type8 > div > select:last-child{
+.weekData_type8>div>select:last-child {
     margin-top: -1px;
 }
 
-.weekData_type8 > select{
+.weekData_type8>select {
     display: flex;
     width: 50%;
     height: 100%;
@@ -317,7 +318,7 @@ margin-top: -1px;
 
 /* icons */
 
-.weekType_types__element > div{
+.weekType_types__element>div {
     width: 100%;
 }
 
@@ -345,26 +346,26 @@ margin-top: -1px;
 
 /*  */
 
-.type3_block{
+.type3_block {
     width: 100%;
     height: 20px;
 }
 
-.type3_block:last-child{
+.type3_block:last-child {
     margin-top: -1px;
 }
 
 /*  */
 
-.type4{
+.type4 {
     flex-direction: column;
 }
 
-.type4 > div{
+.type4>div {
     display: flex;
 }
 
-.type4_block{    
+.type4_block {
     width: 100%;
     height: 20px;
 }
@@ -373,21 +374,21 @@ margin-top: -1px;
     margin-left: -1px;
 }
 
-.type4 > .type4_block{
+.type4>.type4_block {
     margin-top: -1px;
 }
 
 /*  */
 
-.type5{
+.type5 {
     flex-direction: column;
 }
 
-.type5 > div{
+.type5>div {
     display: flex;
 }
 
-.type5_block{    
+.type5_block {
     width: 100%;
     height: 20px;
 }
@@ -396,40 +397,41 @@ margin-top: -1px;
     margin-left: -1px;
 }
 
-.type5 > .type5_block{
+.type5>.type5_block {
     margin-bottom: -1px;
 }
 
 /*  */
 
-.type6{
+.type6 {
     flex-direction: column;
 }
 
-.type6 > div{
+.type6>div {
     display: flex;
     margin-top: -1px;
 }
 
-.type6 > div > .type6_block:last-child{
+.type6>div>.type6_block:last-child {
     margin-left: -1px;
 }
 
-.type6_block{    
+.type6_block {
     width: 100%;
     height: 20px;
 }
 
 /*  */
 
-.type7 > div .type7_block{
+.type7>div .type7_block {
     height: 20px;
 }
-.type7 > div .type7_block:last-child{
+
+.type7>div .type7_block:last-child {
     margin-top: -1px;
 }
 
-.type7 > div:last-child .type7_block{
+.type7>div:last-child .type7_block {
     height: 39px;
     margin-left: -1px;
     margin-top: 0px;
@@ -437,29 +439,30 @@ margin-top: -1px;
 
 /*  */
 
-.type8 > div .type8_block{
+.type8>div .type8_block {
     height: 39px;
 }
 
-.type8 > div:last-child .type8_block{
+.type8>div:last-child .type8_block {
     height: 20px;
     margin-left: -1px;
     margin-top: 0px;
 }
 
-.type8 > div:last-child > .type8_block:last-child{
+.type8>div:last-child>.type8_block:last-child {
     margin-top: -1px;
 }
 
 
 /* icons */
-nav{
+nav {
     display: flex;
     width: 100%;
     justify-content: center;
     margin-bottom: 30px;
 }
-nav ul{
+
+nav ul {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -467,7 +470,7 @@ nav ul{
     gap: 20px;
 }
 
-nav ul div{
+nav ul div {
     font-weight: 500;
     color: #000;
     text-decoration: none;
@@ -475,42 +478,42 @@ nav ul div{
     cursor: pointer;
 }
 
-nav ul div:hover{
+nav ul div:hover {
     border-bottom: 1px solid #000;
 }
 
-.renderSection{
+.renderSection {
     width: 100%;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.auditorium form{
+.auditorium form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.showData{
+.showData {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.auditorium form h2{
+.auditorium form h2 {
     margin-bottom: 30px;
 }
 
-.building_floars__floar___datas{
+.building_floars__floar___datas {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.building_floars__floar___number{
+.building_floars__floar___number {
     width: 70px;
     padding: 10px 20px;
     background-color: #2e3181;
@@ -525,29 +528,30 @@ nav ul div:hover{
     align-items: center;
 }
 
-.building_title{
+.building_title {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-.building_floars, .building_floars__floar{
+.building_floars,
+.building_floars__floar {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.block_and_delete{
+.block_and_delete {
     position: relative;
     cursor: pointer;
 }
 
-.teachersShow{
+.teachersShow {
     display: flex;
     gap: 10px;
 }
 
-.teachersShow_title{
+.teachersShow_title {
     padding: 10px 20px;
     background-color: #2e3181;
     color: #fff;
@@ -562,7 +566,10 @@ nav ul div:hover{
 }
 
 
-.deleteNumber, .deleteTeacher, .deleteStudent, .deleteGroups{
+.deleteNumber,
+.deleteTeacher,
+.deleteStudent,
+.deleteGroups {
     position: absolute;
     right: -10px;
     top: -8px;
@@ -579,11 +586,17 @@ nav ul div:hover{
     text-align: center;
 }
 
-.deleteNumber img, .deleteTeacher img, .deleteStudent img, .deleteGroups img{
+.deleteNumber img,
+.deleteTeacher img,
+.deleteStudent img,
+.deleteGroups img {
     width: 40%;
 }
 
-.editNumber, .editTeacher, .editStudent, .editGroups{
+.editNumber,
+.editTeacher,
+.editStudent,
+.editGroups {
     position: absolute;
     right: 12px;
     top: -8px;
@@ -599,25 +612,69 @@ nav ul div:hover{
     text-align: center;
 }
 
-.editNumber img, .editTeacher img, .editStudent img, .editGroups img{
+.editNumber img,
+.editTeacher img,
+.editStudent img,
+.editGroups img {
     width: 100%;
 }
 
-.teachersShow_name{
+.teachersShow_name {
     font-size: 20px;
     font-weight: 600;
 }
 
-.checkStartData{
+.checkStartData {
     width: 100%;
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.checkStartData select{
+.checkStartData select {
     width: 300px;
     height: 40px;
     outline: none;
     cursor: pointer;
+}
+
+/*  */
+
+.inputDropBlock {
+    width: calc((100% - 40px) / 4);
+    position: relative;
+}
+
+.inputDropBlock input {
+    width: 100%;
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+
+.dropdown-content .elements {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.dropdown-content .elements:hover {
+    background-color: #f4f4f4;
 }
