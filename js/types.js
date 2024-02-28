@@ -6,8 +6,8 @@ function type1Change(block, count) {
                 name="${block}_title_${count}_subgroup0_noSeparate" 
                 id="${block}_title_${count}_subgroup0_noSeparate" 
                 placeholder="Введите название занятие"
-                onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_noSeparate')"
-                oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_noSeparate')"
+                onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_noSeparate', 'items')"
+                oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_noSeparate', 'items')"
             />
             <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
         </div>
@@ -17,8 +17,8 @@ function type1Change(block, count) {
                 name="${block}_teacher_${count}_subgroup0_noSeparate" 
                 id="${block}_teacher_${count}_subgroup0_noSeparate" 
                 placeholder="Введите ФИО преподавателя"
-                onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_noSeparate')"
-                oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_noSeparate')"
+                onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_noSeparate', 'teachers')"
+                oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_noSeparate', 'teachers')"
             />
             <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
         </div>
@@ -28,19 +28,22 @@ function type1Change(block, count) {
                 name="${block}_auditorium_${count}_subgroup0_noSeparate"
                 id="${block}_auditorium_${count}_subgroup0_noSeparate" 
                 placeholder="Введите номер аудитории"
-                onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_noSeparate')"
-                oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_noSeparate')"
+                onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_noSeparate', 'auditorium')"
+                oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_noSeparate', 'auditorium')"
             />
             <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
         </div>
 
-        <select name="${block}_type_${count}_subgroup0_noSeparate">
-            <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-            <option value="Лекционное занятие">Лекционное занятие</option>
-            <option value="Лабораторное занятие">Лабораторное занятие</option>
-            <option value="Практическое занятие">Практическое занятие</option>
-        </select>
+        <div class="inputDropBlock">
+            <input 
+                name="${block}_type_${count}_subgroup0_noSeparate" 
+                id="${block}_type_${count}_subgroup0_noSeparate" 
+                placeholder="Введите тип занятия"
+                onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup0_noSeparate', 'types')"
+                oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup0_noSeparate', 'types')"
+            />
+            <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
+        </div>
 
         <input type="hidden" name="${block}_subgroup_${count}_subgroup0_noSeparate" value="-">
         <input type="hidden" name="${block}_separate_${count}_subgroup0_noSeparate" value="-">
@@ -934,23 +937,36 @@ function type8Change(block, count) {
 
 
 
-function showDropdown(dropDownBlockID, BlockValueID) {
+function showDropdown(dropDownBlockID, BlockValueID, tableName) {
     let value = $(`#${BlockValueID}`).val();
     let dropdownList = $(`#${dropDownBlockID}`);
 
     dropdownList.empty();
 
-    const data = ['Вариант 1', 'Вариант 2', 'Вариант 3', 'Другой вариант', 'Еще один вариант'];
+    $.ajax({
+        url: '../includes/getDropDownInfo.php',
+        method: 'POST',
+        data: { tableName: tableName },
+        dataType: 'text',
+        success: function (response) {
+            const data = JSON.parse(response);
 
-    const filteredData = data.filter(item => item.toLowerCase().includes(value.toLowerCase()));
+            const filteredData = data.filter(item => item.toLowerCase().includes(value.toLowerCase()));
+            filteredData.sort((a, b) => a.localeCompare(b));
 
-    filteredData.forEach(item => {
-        const option = $(`<div class="elements">${item}</div>`);
-        option.on('click', function () {
-            $(`#${BlockValueID}`).val(item);
-            dropdownList.hide();
-        });
-        dropdownList.append(option);
+            const lastFiveItems = filteredData.slice(-5);
+            lastFiveItems.forEach(item => {
+                const option = $(`<div class="elements">${item}</div>`);
+                option.on('click', function () {
+                    $(`#${BlockValueID}`).val(item);
+                    dropdownList.hide();
+                });
+                dropdownList.append(option);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Ошибка при выполнении AJAX-запроса:', error);
+        }
     });
 
     dropdownList.show();
@@ -962,6 +978,6 @@ function showDropdown(dropDownBlockID, BlockValueID) {
     });
 }
 
-function showList(dropDownBlockID, BlockValueID) {
-    showDropdown(dropDownBlockID, BlockValueID);
+function showList(dropDownBlockID, BlockValueID, tableName) {
+    showDropdown(dropDownBlockID, BlockValueID, tableName);
 }

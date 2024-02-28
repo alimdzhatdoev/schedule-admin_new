@@ -137,6 +137,16 @@ foreach ($DB_mass as $key => $data) {
     }
 }
 
+
+$itemsMass = [];
+
+$items = R::findAll('items');
+foreach($items as $data) {
+    array_push($itemsMass, $data->lessonname);
+}
+
+$checkMass = [];
+
 foreach ($send as $key => $data) {
     $lesson = R::dispense('lessons');
 
@@ -146,9 +156,24 @@ foreach ($send as $key => $data) {
     
     foreach ($data as $k => $el) {
         $lesson->$k = $el;
-    }
 
+        if ($k == 'title'){
+            if (!in_array($el, $itemsMass)) {
+                array_push($checkMass, $el);
+            }
+        }
+    }
     R::store($lesson);
+}
+
+if (count($checkMass) > 0) {
+    $lessonname = R::dispense('items');
+
+    foreach ($checkMass as $key => $data) {
+        $lessonname->lessonname = $data;
+    }
+    
+    R::store($lessonname);
 }
 
 //print_r($send);
