@@ -11,15 +11,12 @@ export function schedule() {
                         <option disabled selected>Выберите направление подготовки</option>
                         <option value="Прикладная информатика в экономике">Прикладная информатика в экономике</option>
                         <option value="Прикладная информатика в юриспруденции">Прикладная информатика в юриспруденции</option>
-                        <option value="Программная инженерия">Программная инженерия</option>
                         <option value="Прикладная математика и информатика">Прикладная математика и информатика</option>
+                        <option value="Программная инженерия">Программная инженерия</option>
                     </select>
                     <select name="startDataGroup" id="startDataGroup">
                         <option disabled selected>Выберите группу</option>
-                        <option value="ПИЭ-231">ПИЭ-231</option>
-                        <option value="ПИЮ-231">ПИЮ-231</option>
-                        <option value="ПИ-231">ПИ-231</option>
-                        <option value="ПМИ-231">ПМИ-231</option>
+                        // Вытащить из бд группы
                     </select>
                 </div>
                 <h2>Расписание:</h2>
