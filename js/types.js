@@ -54,76 +54,92 @@ function type2Change(block, count) {
     return `
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number">
         <div class="weekData_type2">
-            <select name="${block}_title_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
-            <select name="${block}_title_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_title_${count}_subgroup1_noSeparate" 
+                    id="${block}_title_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_noSeparate', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_noSeparate', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_title_${count}_subgroup2_noSeparate" 
+                    id="${block}_title_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_noSeparate', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_noSeparate', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type2">
-            <select name="${block}_teacher_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
-            <select name="${block}_teacher_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_teacher_${count}_subgroup1_noSeparate" 
+                    id="${block}_teacher_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_noSeparate', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_noSeparate', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_teacher_${count}_subgroup2_noSeparate" 
+                    id="${block}_teacher_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_noSeparate', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_noSeparate', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type2">
-            <select name="${block}_auditorium_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
-            <select name="${block}_auditorium_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_auditorium_${count}_subgroup1_noSeparate" 
+                    id="${block}_auditorium_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_noSeparate', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_noSeparate', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_auditorium_${count}_subgroup2_noSeparate" 
+                    id="${block}_auditorium_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_noSeparate', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_noSeparate', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type2">
-            <select name="${block}_type_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
-            <select name="${block}_type_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_type_${count}_subgroup1_noSeparate" 
+                    id="${block}_type_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_noSeparate', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_noSeparate', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_type_${count}_subgroup2_noSeparate" 
+                    id="${block}_type_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_noSeparate', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_noSeparate', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
+            </div>
         </div>  
         <div class="weekData_type2 hidden">
             <input type="hidden" name="${block}_subgroup_${count}_subgroup1_noSeparate" value="1">
@@ -140,76 +156,92 @@ function type3Change(block, count) {
     return `
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number" >
         <div class="weekData_type3">
-            <select name="${block}_title_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
-            <select name="${block}_title_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
+            <div class="inputDropBlock">    
+                <input 
+                    name="${block}_title_${count}_subgroup0_chislitel" 
+                    id="${block}_title_${count}_subgroup0_chislitel" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_chislitel', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_chislitel', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_title_${count}_subgroup0_znamenatel" 
+                    id="${block}_title_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup0_znamenatel', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup0_znamenatel', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type3">
-            <select name="${block}_teacher_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
-            <select name="${block}_teacher_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
+            <div class="inputDropBlock">    
+                <input 
+                    name="${block}_teacher_${count}_subgroup0_chislitel" 
+                    id="${block}_teacher_${count}_subgroup0_chislitel" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_chislitel', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_chislitel', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_teacher_${count}_subgroup0_znamenatel" 
+                    id="${block}_teacher_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup0_znamenatel', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup0_znamenatel', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type3">
-            <select name="${block}_auditorium_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
-            <select name="${block}_auditorium_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
+            <div class="inputDropBlock">    
+                <input 
+                    name="${block}_auditorium_${count}_subgroup0_chislitel" 
+                    id="${block}_auditorium_${count}_subgroup0_chislitel" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_chislitel', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_chislitel', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_auditorium_${count}_subgroup0_znamenatel" 
+                    id="${block}_auditorium_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup0_znamenatel', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup0_znamenatel', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type3">
-            <select name="${block}_type_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
-            <select name="${block}_type_${count}_subgroup0_znamenatel">
-            <option value="-">-</option>
-                <option disabled selected>Выберите тип занятия</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
+            <div class="inputDropBlock">    
+                <input 
+                    name="${block}_type_${count}_subgroup0_chislitel" 
+                    id="${block}_type_${count}_subgroup0_chislitel" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup0_chislitel', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup0_chislitel', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
+            </div>
+            <div class="inputDropBlock">
+                <input 
+                    name="${block}_type_${count}_subgroup0_znamenatel" 
+                    id="${block}_type_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup0_znamenatel', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup0_znamenatel', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
+            </div>
         </div>
         <div class="weekData_type3 hidden">
             <input type="hidden" name="${block}_subgroup_${count}_subgroup0_chislitel" value="-">
@@ -222,123 +254,64 @@ function type3Change(block, count) {
     `;
 }
 
+
 function type4Change(block, count) {
     return `
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number" >
         <div class="weekData_type4">
             <div>
-                <select name="${block}_title_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
-                <select name="${block}_title_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup2_chislitel" />
+                </div>
             </div>
-            <select name="${block}_title_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_title_${count}_subgroup0_znamenatel" />
+            </div>
         </div>
         <div class="weekData_type4">
             <div>
-                <select name="${block}_teacher_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
-                <select name="${block}_teacher_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup2_chislitel" />
+                </div>
             </div>
 
-            <select name="${block}_teacher_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_teacher_${count}_subgroup0_znamenatel" />
+            </div>
         </div>
         <div class="weekData_type4">
             <div>
-                <select name="${block}_auditorium_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
-                <select name="${block}_auditorium_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup2_chislitel" />
+                </div>
             </div>
 
-            <select name="${block}_auditorium_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_auditorium_${count}_subgroup0_znamenatel" />
+            </div>
         </div>
         <div class="weekData_type4">
             <div>
-                <select name="${block}_type_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
-                <select name="${block}_type_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup2_chislitel" />
+                </div>
             </div>
 
-            <select name="${block}_type_${count}_subgroup0_znamenatel">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_type_${count}_subgroup0_znamenatel" />
+            </div>
         </div>
         <div class="weekData_type4 hidden">
             <div>
@@ -361,115 +334,55 @@ function type5Change(block, count) {
     return `
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number" >
         <div class="weekData_type5">
-            <select name="${block}_title_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_title_${count}_subgroup0_chislitel" />
+            </div>
             <div>
-                <select name="${block}_title_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
-                <select name="${block}_title_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type5">
-            <select name="${block}_teacher_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_teacher_${count} /_subgroup0_chislitel">
+            </div>
             <div>
-                <select name="${block}_teacher_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
-                <select name="${block}_teacher_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type5">
-            <select name="${block}_auditorium_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_auditorium_${count}_subgroup0_chislitel" />
+            </div>
             <div>
-                <select name="${block}_auditorium_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
-                <select name="${block}_auditorium_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type5">
-            <select name="${block}_type_${count}_subgroup0_chislitel">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_type_${count}_subgroup0_chislitel" />
+            </div>
             <div>
-                <select name="${block}_type_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
-                <select name="${block}_type_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type5 hidden">
@@ -494,157 +407,77 @@ function type6Change(block, count) {
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number" >
         <div class="weekData_type6">
             <div>
-                <select name="${block}_title_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
-                <select name="${block}_title_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup2_chislitel" />
+                </div>
             </div>
             <div>
-                <select name="${block}_title_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
-                <select name="${block}_title_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
 
         <div class="weekData_type6">
             <div>
-                <select name="${block}_teacher_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
-                <select name="${block}_teacher_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup2_chislitel" />
+                </div>
             </div>
             <div>
-                <select name="${block}_teacher_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
-                <select name="${block}_teacher_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
 
         <div class="weekData_type6">
             <div>
-                <select name="${block}_auditorium_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
-                <select name="${block}_auditorium_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup2_chislitel" />
+                </div>
             </div>
             <div>
-                <select name="${block}_auditorium_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
-                <select name="${block}_auditorium_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
 
         <div class="weekData_type6">
             <div>
-                <select name="${block}_type_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
-                <select name="${block}_type_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup2_chislitel" />
+                </div>
             </div>
             <div>
-                <select name="${block}_type_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
-                <select name="${block}_type_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup1_znamenatel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type6 hidden">
@@ -675,115 +508,55 @@ function type7Change(block, count) {
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number">
         <div class="weekData_type7">
             <div>
-                <select name="${block}_title_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
-                <select name="${block}_title_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup1_znamenatel" />
+                </div>
             </div>
-            <select name="${block}_title_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_title_${count} /_subgroup2_noSeparate">
+            </div>
         </div>
         <div class="weekData_type7">
             <div>
-                <select name="${block}_teacher_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
-                <select name="${block}_teacher_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup1_znamenatel" />
+                </div>
             </div>
-            <select name="${block}_teacher_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_teacher_${count}_subgroup2_noSeparate" />
+            </div>
         </div>
         <div class="weekData_type7">
             <div>
-                <select name="${block}_auditorium_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
-                <select name="${block}_auditorium_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup1_znamenatel" />
+                </div>
             </div>
-            <select name="${block}_auditorium_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_auditorium_${count}_subgroup2_noSeparate" />
+            </div>
         </div>
         <div class="weekData_type7">
             <div>
-                <select name="${block}_type_${count}_subgroup1_chislitel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
-                <select name="${block}_type_${count}_subgroup1_znamenatel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup1_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup1_znamenatel" />
+                </div>
             </div>
-            <select name="${block}_type_${count}_subgroup2_noSeparate">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_type_${count}_subgroup2_noSeparate" />
+            </div>
         </div>  
         <div class="weekData_type7 hidden">
             <div>
@@ -806,115 +579,55 @@ function type8Change(block, count) {
     return `
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number">
         <div class="weekData_type8">
-            <select name="${block}_title_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                <option value="Информатика и программирование">Информатика и программирование</option>
-                <option value="Математика">Математика</option>
-                <option value="История России">История России</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_title_${count}_subgroup1_noSeparate" />
+            </div>
             <div>
-                <select name="${block}_title_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
-                <select name="${block}_title_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите занятие</option>
-            <option value="-">-</option>
-                    <option value="Информатика и программирование">Информатика и программирование</option>
-                    <option value="Математика">Математика</option>
-                    <option value="История России">История России</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup2_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_title_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type8">
-            <select name="${block}_teacher_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                <option value="Преподаватель 1">Преподаватель 1</option>
-                <option value="Преподаватель 2">Преподаватель 2</option>
-                <option value="Преподаватель 3">Преподаватель 3</option>
-                <option value="Преподаватель 4">Преподаватель 4</option>
-                <option value="Преподаватель 5">Преподаватель 5</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_teacher_${count}_subgroup1_noSeparate" />
+            </div>
             <div>
-                <select name="${block}_teacher_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
-                <select name="${block}_teacher_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите преподавателя</option>
-            <option value="-">-</option>
-                    <option value="Преподаватель 1">Преподаватель 1</option>
-                    <option value="Преподаватель 2">Преподаватель 2</option>
-                    <option value="Преподаватель 3">Преподаватель 3</option>
-                    <option value="Преподаватель 4">Преподаватель 4</option>
-                    <option value="Преподаватель 5">Преподаватель 5</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup2_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_teacher_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type8">
-            <select name="${block}_auditorium_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                <option value="215">215</option>
-                <option value="216">216</option>
-                <option value="217">217</option>
-                <option value="218">218</option>
-                <option value="219">219</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_auditorium_${count}_subgroup1_noSeparate" />
+            </div>
             <div>
-                <select name="${block}_auditorium_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
-                <select name="${block}_auditorium_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите аудиторию</option>
-            <option value="-">-</option>
-                    <option value="215">215</option>
-                    <option value="216">216</option>
-                    <option value="217">217</option>
-                    <option value="218">218</option>
-                    <option value="219">219</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup2_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_auditorium_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>
         <div class="weekData_type8">
-            <select name="${block}_type_${count}_subgroup1_noSeparate">
-                <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                <option value="Лекционное занятие">Лекционное занятие</option>
-                <option value="Лабораторное занятие">Лабораторное занятие</option>
-                <option value="Практическое занятие">Практическое занятие</option>
-            </select>
+            <div class="inputDropBlock">
+                <input name="${block}_type_${count}_subgroup1_noSeparate" />
+            </div>
             <div>
-                <select name="${block}_type_${count}_subgroup2_chislitel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
-                <select name="${block}_type_${count}_subgroup2_znamenatel">
-                    <option disabled selected>Выберите тип занятия</option>
-            <option value="-">-</option>
-                    <option value="Лекционное занятие">Лекционное занятие</option>
-                    <option value="Лабораторное занятие">Лабораторное занятие</option>
-                    <option value="Практическое занятие">Практическое занятие</option>
-                </select>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup2_chislitel" />
+                </div>
+                <div class="inputDropBlock">
+                    <input name="${block}_type_${count}_subgroup2_znamenatel" />
+                </div>
             </div>
         </div>  
         <div class="weekData_type8 hidden">
