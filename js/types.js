@@ -254,63 +254,146 @@ function type3Change(block, count) {
     `;
 }
 
-
 function type4Change(block, count) {
     return `
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number" >
         <div class="weekData_type4">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup1_chislitel" 
+                        id="${block}_title_${count}_subgroup1_chislitel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_chislitel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_chislitel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup2_chislitel" 
+                        id="${block}_title_${count}_subgroup2_chislitel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_chislitel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_chislitel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
                 </div>
             </div>
             <div class="inputDropBlock">
-                <input name="${block}_title_${count}_subgroup0_znamenatel" />
+                <input 
+                    name="${block}_title_${count}_subgroup0_znamenatel" 
+                    id="${block}_title_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup0_znamenatel', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup0_znamenatel', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type4">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup1_chislitel" 
+                        id="${block}_teacher_${count}_subgroup1_chislitel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_chislitel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_chislitel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup2_chislitel" 
+                        id="${block}_teacher_${count}_subgroup2_chislitel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_chislitel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_chislitel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
                 </div>
             </div>
 
             <div class="inputDropBlock">
-                <input name="${block}_teacher_${count}_subgroup0_znamenatel" />
+                <input 
+                    name="${block}_teacher_${count}_subgroup0_znamenatel" 
+                    id="${block}_teacher_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup0_znamenatel', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup0_znamenatel', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type4">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup1_chislitel" 
+                        id="${block}_auditorium_${count}_subgroup1_chislitel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_chislitel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_chislitel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup2_chislitel" 
+                        id="${block}_auditorium_${count}_subgroup2_chislitel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_chislitel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_chislitel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
                 </div>
             </div>
 
             <div class="inputDropBlock">
-                <input name="${block}_auditorium_${count}_subgroup0_znamenatel" />
+                <input 
+                    name="${block}_auditorium_${count}_subgroup0_znamenatel" 
+                    id="${block}_auditorium_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup0_znamenatel', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup0_znamenatel', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type4">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup1_chislitel" 
+                        id="${block}_type_${count}_subgroup1_chislitel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_chislitel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_chislitel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup2_chislitel" 
+                        id="${block}_type_${count}_subgroup2_chislitel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_chislitel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_chislitel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
                 </div>
             </div>
 
             <div class="inputDropBlock">
-                <input name="${block}_type_${count}_subgroup0_znamenatel" />
+                <input 
+                    name="${block}_type_${count}_subgroup0_znamenatel" 
+                    id="${block}_type_${count}_subgroup0_znamenatel" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup0_znamenatel', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup0_znamenatel', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type4 hidden">
@@ -335,53 +418,137 @@ function type5Change(block, count) {
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number" >
         <div class="weekData_type5">
             <div class="inputDropBlock">
-                <input name="${block}_title_${count}_subgroup0_chislitel" />
+                <input 
+                    name="${block}_title_${count}_subgroup0_chislitel" 
+                    id="${block}_title_${count}_subgroup0_chislitel" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_chislitel', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup0_chislitel', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup1_znamenatel" 
+                        id="${block}_title_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup1_znamenatel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup1_znamenatel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup2_znamenatel" 
+                        id="${block}_title_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup2_znamenatel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup2_znamenatel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
         <div class="weekData_type5">
             <div class="inputDropBlock">
-                <input name="${block}_teacher_${count} /_subgroup0_chislitel">
+                <input 
+                    name="${block}_teacher_${count}_subgroup0_chislitel"
+                    id="${block}_teacher_${count}_subgroup0_chislitel" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_chislitel', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup0_chislitel', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup1_znamenatel" 
+                        id="${block}_teacher_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup1_znamenatel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup1_znamenatel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup2_znamenatel" 
+                        id="${block}_teacher_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup2_znamenatel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup2_znamenatel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
         <div class="weekData_type5">
             <div class="inputDropBlock">
-                <input name="${block}_auditorium_${count}_subgroup0_chislitel" />
+                <input 
+                    name="${block}_auditorium_${count}_subgroup0_chislitel" 
+                    id="${block}_auditorium_${count}_subgroup0_chislitel" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_chislitel', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup0_chislitel', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup1_znamenatel" 
+                        id="${block}_auditorium_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup1_znamenatel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup1_znamenatel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup2_znamenatel" 
+                        id="${block}_auditorium_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup2_znamenatel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup2_znamenatel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
         <div class="weekData_type5">
             <div class="inputDropBlock">
-                <input name="${block}_type_${count}_subgroup0_chislitel" />
+                <input 
+                    name="${block}_type_${count}_subgroup0_chislitel" 
+                    id="${block}_type_${count}_subgroup0_chislitel" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup0_chislitel', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup0_chislitel', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup1_znamenatel" 
+                        id="${block}_type_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup1_znamenatel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup1_znamenatel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup2_znamenatel" 
+                        id="${block}_type_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup2_znamenatel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup2_znamenatel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
@@ -408,56 +575,46 @@ function type6Change(block, count) {
         <div class="weekData_type6">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup1_chislitel" 
+                        id="${block}_title_${count}_subgroup1_chislitel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_chislitel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_chislitel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup2_chislitel" />
-                </div>
-            </div>
-            <div>
-                <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup1_znamenatel" />
-                </div>
-                <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup2_znamenatel" />
-                </div>
-            </div>
-        </div>
-
-        <div class="weekData_type6">
-            <div>
-                <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup1_chislitel" />
-                </div>
-                <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup2_chislitel" 
+                        id="${block}_title_${count}_subgroup2_chislitel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_chislitel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_chislitel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
                 </div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup1_znamenatel" 
+                        id="${block}_title_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup1_znamenatel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup1_znamenatel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown2"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup2_znamenatel" />
-                </div>
-            </div>
-        </div>
-
-        <div class="weekData_type6">
-            <div>
-                <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup1_chislitel" />
-                </div>
-                <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup2_chislitel" />
-                </div>
-            </div>
-            <div>
-                <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup1_znamenatel" />
-                </div>
-                <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup2_znamenatel" 
+                        id="${block}_title_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown3', '${block}_title_${count}_subgroup2_znamenatel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown3', '${block}_title_${count}_subgroup2_znamenatel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown3"></div>
                 </div>
             </div>
         </div>
@@ -465,18 +622,140 @@ function type6Change(block, count) {
         <div class="weekData_type6">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup1_chislitel" 
+                        id="${block}_teacher_${count}_subgroup1_chislitel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_chislitel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_chislitel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup2_chislitel" 
+                        id="${block}_teacher_${count}_subgroup2_chislitel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_chislitel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_chislitel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
                 </div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup1_znamenatel" 
+                        id="${block}_teacher_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup1_znamenatel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup1_znamenatel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown2"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup2_znamenatel" 
+                        id="${block}_teacher_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown3', '${block}_teacher_${count}_subgroup2_znamenatel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown3', '${block}_teacher_${count}_subgroup2_znamenatel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weekData_type6">
+            <div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup1_chislitel" 
+                        id="${block}_auditorium_${count}_subgroup1_chislitel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_chislitel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_chislitel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
+                </div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup2_chislitel" 
+                        id="${block}_auditorium_${count}_subgroup2_chislitel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_chislitel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_chislitel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
+                </div>
+            </div>
+            <div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup1_znamenatel" 
+                        id="${block}_auditorium_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup1_znamenatel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup1_znamenatel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown2"></div>
+                </div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup2_znamenatel" 
+                        id="${block}_auditorium_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown3', '${block}_auditorium_${count}_subgroup2_znamenatel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown3', '${block}_auditorium_${count}_subgroup2_znamenatel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weekData_type6">
+            <div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_type_${count}_subgroup1_chislitel" 
+                        id="${block}_type_${count}_subgroup1_chislitel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_chislitel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_chislitel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
+                </div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_type_${count}_subgroup2_chislitel" 
+                        id="${block}_type_${count}_subgroup2_chislitel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_chislitel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_chislitel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
+                </div>
+            </div>
+            <div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_type_${count}_subgroup1_znamenatel" 
+                        id="${block}_type_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup1_znamenatel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup1_znamenatel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown2"></div>
+                </div>
+                <div class="inputDropBlock">
+                    <input 
+                        name="${block}_type_${count}_subgroup2_znamenatel" 
+                        id="${block}_type_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown3', '${block}_type_${count}_subgroup2_znamenatel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown3', '${block}_type_${count}_subgroup2_znamenatel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown3"></div>
                 </div>
             </div>
         </div>
@@ -509,53 +788,137 @@ function type7Change(block, count) {
         <div class="weekData_type7">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup1_chislitel" 
+                        id="${block}_title_${count}_subgroup1_chislitel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_chislitel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_chislitel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup1_znamenatel" 
+                        id="${block}_title_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup1_znamenatel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup1_znamenatel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
                 </div>
             </div>
             <div class="inputDropBlock">
-                <input name="${block}_title_${count} /_subgroup2_noSeparate">
+                <input 
+                    name="${block}_title_${count}_subgroup2_noSeparate"
+                    id="${block}_title_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup2_noSeparate', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup2_noSeparate', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type7">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup1_chislitel" 
+                        id="${block}_teacher_${count}_subgroup1_chislitel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_chislitel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_chislitel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup1_znamenatel" 
+                        id="${block}_teacher_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup1_znamenatel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup1_znamenatel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
                 </div>
             </div>
             <div class="inputDropBlock">
-                <input name="${block}_teacher_${count}_subgroup2_noSeparate" />
+                <input 
+                    name="${block}_teacher_${count}_subgroup2_noSeparate" 
+                    id="${block}_teacher_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup2_noSeparate', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup2_noSeparate', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type7">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup1_chislitel" 
+                        id="${block}_auditorium_${count}_subgroup1_chislitel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_chislitel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_chislitel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup1_znamenatel" 
+                        id="${block}_auditorium_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup1_znamenatel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup1_znamenatel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
                 </div>
             </div>
             <div class="inputDropBlock">
-                <input name="${block}_auditorium_${count}_subgroup2_noSeparate" />
+                <input 
+                    name="${block}_auditorium_${count}_subgroup2_noSeparate" 
+                    id="${block}_auditorium_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup2_noSeparate', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup2_noSeparate', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown2"></div>
             </div>
         </div>
         <div class="weekData_type7">
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup1_chislitel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup1_chislitel" 
+                        id="${block}_type_${count}_subgroup1_chislitel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_chislitel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_chislitel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup1_znamenatel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup1_znamenatel" 
+                        id="${block}_type_${count}_subgroup1_znamenatel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup1_znamenatel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup1_znamenatel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
                 </div>
             </div>
             <div class="inputDropBlock">
-                <input name="${block}_type_${count}_subgroup2_noSeparate" />
+                <input 
+                    name="${block}_type_${count}_subgroup2_noSeparate" 
+                    id="${block}_type_${count}_subgroup2_noSeparate" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup2_noSeparate', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup2_noSeparate', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown2"></div>
             </div>
         </div>  
         <div class="weekData_type7 hidden">
@@ -580,53 +943,137 @@ function type8Change(block, count) {
         <input type="text" placeholder="№" name="${block}_number_${count}" class="weekData_number">
         <div class="weekData_type8">
             <div class="inputDropBlock">
-                <input name="${block}_title_${count}_subgroup1_noSeparate" />
+                <input 
+                    name="${block}_title_${count}_subgroup1_noSeparate" 
+                    id="${block}_title_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите название занятие"
+                    onclick="showList('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_noSeparate', 'items')"
+                    oninput="showDropdown('${block}_title_${count}_dropdown', '${block}_title_${count}_subgroup1_noSeparate', 'items')"
+                />
+                <div class="dropdown-content" id="${block}_title_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup2_chislitel" 
+                        id="${block}_title_${count}_subgroup2_chislitel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_chislitel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown1', '${block}_title_${count}_subgroup2_chislitel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_title_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_title_${count}_subgroup2_znamenatel" 
+                        id="${block}_title_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите название занятие"
+                        onclick="showList('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup2_znamenatel', 'items')"
+                        oninput="showDropdown('${block}_title_${count}_dropdown2', '${block}_title_${count}_subgroup2_znamenatel', 'items')"
+                    />
+                    <div class="dropdown-content" id="${block}_title_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
         <div class="weekData_type8">
             <div class="inputDropBlock">
-                <input name="${block}_teacher_${count}_subgroup1_noSeparate" />
+                <input 
+                    name="${block}_teacher_${count}_subgroup1_noSeparate" 
+                    id="${block}_teacher_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите ФИО преподавателя"
+                    onclick="showList('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_noSeparate', 'teachers')"
+                    oninput="showDropdown('${block}_teacher_${count}_dropdown', '${block}_teacher_${count}_subgroup1_noSeparate', 'teachers')"
+                />
+                <div class="dropdown-content" id="${block}_teacher_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup2_chislitel" 
+                        id="${block}_teacher_${count}_subgroup2_chislitel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_chislitel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown1', '${block}_teacher_${count}_subgroup2_chislitel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_teacher_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_teacher_${count}_subgroup2_znamenatel" 
+                        id="${block}_teacher_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите ФИО преподавателя"
+                        onclick="showList('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup2_znamenatel', 'teachers')"
+                        oninput="showDropdown('${block}_teacher_${count}_dropdown2', '${block}_teacher_${count}_subgroup2_znamenatel', 'teachers')"
+                    />
+                    <div class="dropdown-content" id="${block}_teacher_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
         <div class="weekData_type8">
             <div class="inputDropBlock">
-                <input name="${block}_auditorium_${count}_subgroup1_noSeparate" />
+                <input 
+                    name="${block}_auditorium_${count}_subgroup1_noSeparate" 
+                    id="${block}_auditorium_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите номер аудитории"
+                    onclick="showList('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_noSeparate', 'auditorium')"
+                    oninput="showDropdown('${block}_auditorium_${count}_dropdown', '${block}_auditorium_${count}_subgroup1_noSeparate', 'auditorium')"
+                />
+                <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup2_chislitel" 
+                        id="${block}_auditorium_${count}_subgroup2_chislitel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_chislitel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown1', '${block}_auditorium_${count}_subgroup2_chislitel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_auditorium_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_auditorium_${count}_subgroup2_znamenatel" 
+                        id="${block}_auditorium_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите номер аудитории"
+                        onclick="showList('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup2_znamenatel', 'auditorium')"
+                        oninput="showDropdown('${block}_auditorium_${count}_dropdown2', '${block}_auditorium_${count}_subgroup2_znamenatel', 'auditorium')"
+                    />
+                    <div class="dropdown-content" id="${block}_auditorium_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>
         <div class="weekData_type8">
             <div class="inputDropBlock">
-                <input name="${block}_type_${count}_subgroup1_noSeparate" />
+                <input 
+                    name="${block}_type_${count}_subgroup1_noSeparate" 
+                    id="${block}_type_${count}_subgroup1_noSeparate" 
+                    placeholder="Введите тип занятия"
+                    onclick="showList('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_noSeparate', 'types')"
+                    oninput="showDropdown('${block}_type_${count}_dropdown', '${block}_type_${count}_subgroup1_noSeparate', 'types')"
+                />
+                <div class="dropdown-content" id="${block}_type_${count}_dropdown"></div>
             </div>
             <div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup2_chislitel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup2_chislitel" 
+                        id="${block}_type_${count}_subgroup2_chislitel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_chislitel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown1', '${block}_type_${count}_subgroup2_chislitel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown1"></div>
                 </div>
                 <div class="inputDropBlock">
-                    <input name="${block}_type_${count}_subgroup2_znamenatel" />
+                    <input 
+                        name="${block}_type_${count}_subgroup2_znamenatel" 
+                        id="${block}_type_${count}_subgroup2_znamenatel" 
+                        placeholder="Введите тип занятия"
+                        onclick="showList('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup2_znamenatel', 'types')"
+                        oninput="showDropdown('${block}_type_${count}_dropdown2', '${block}_type_${count}_subgroup2_znamenatel', 'types')"
+                    />
+                    <div class="dropdown-content" id="${block}_type_${count}_dropdown2"></div>
                 </div>
             </div>
         </div>  
