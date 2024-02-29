@@ -106,8 +106,16 @@ $(document).on('click', '#addScheduleToDB', function (event) {
     let startDataDirection = $("#startDataDirection").val();
     let startDataGroup = $("#startDataGroup").val();
 
-    if (startDataInstitute == null || startDataDirection == null || startDataGroup == null){
+    let count = 0;
+
+    $("input").each(function() {
+        if ($(this).val() === '') {
+            count = count + 1;
+        }
+    });
+    
+    if (startDataInstitute == null || startDataDirection == null || startDataGroup == null || count > 0){
         event.preventDefault();
-        alert('Заполните первичные данные');
+        alert('Заполните все данные');
     }
 });
