@@ -100,3 +100,14 @@ $(document).on('click', '.weekData', function () {
 
     localStorage.setItem('block', JSON.stringify(data));
 });
+
+$(document).on('click', '#addScheduleToDB', function (event) {
+    let startDataInstitute = $("#startDataInstitute").val();
+    let startDataDirection = $("#startDataDirection").val();
+    let startDataGroup = $("#startDataGroup").val();
+
+    if (startDataInstitute == null || startDataDirection == null || startDataGroup == null){
+        event.preventDefault();
+        alert('Заполните первичные данные');
+    }
+});

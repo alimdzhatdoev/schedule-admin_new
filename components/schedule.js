@@ -3,18 +3,18 @@ export function schedule() {
         <section class="schedule">
             <form action="../includes/pushData.php" method="POST">
                 <div class="checkStartData">
-                    <select name="startDataInstitute">
+                    <select name="startDataInstitute" id="startDataInstitute">
                         <option disabled selected>Выберите институт</option>
                         <option value="Институт Цифровых Технологий">Институт Цифровых Технологий</option>
                     </select>
-                    <select name="startDataDirection">
+                    <select name="startDataDirection" id="startDataDirection">
                         <option disabled selected>Выберите направление подготовки</option>
                         <option value="Прикладная информатика в экономике">Прикладная информатика в экономике</option>
                         <option value="Прикладная информатика в юриспруденции">Прикладная информатика в юриспруденции</option>
                         <option value="Программная инженерия">Программная инженерия</option>
                         <option value="Прикладная математика и информатика">Прикладная математика и информатика</option>
                     </select>
-                    <select name="startDataGroup">
+                    <select name="startDataGroup" id="startDataGroup">
                         <option disabled selected>Выберите группу</option>
                         <option value="ПИЭ-231">ПИЭ-231</option>
                         <option value="ПИЮ-231">ПИЮ-231</option>
@@ -65,7 +65,7 @@ export function schedule() {
                     </div>
                 </section>
 
-                <button>Добавить</button>
+                <button id="addScheduleToDB">Добавить</button>
             </form>
 
             <div class="weekType">

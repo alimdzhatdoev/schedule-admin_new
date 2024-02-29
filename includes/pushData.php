@@ -207,10 +207,10 @@ if (count($checkTeachersMass) > 0) {
 
     foreach ($checkTeachersMass as $key => $data) {
         $teachername->username = $data;
-        $teachername->position = '';
-        $teachername->type = '';
-        $teachername->login = '';
-        $teachername->password = '';
+        $teachername->position = '-';
+        $teachername->type = 'преподаватель';
+        $teachername->login = strtolower(transliterate($data));
+        $teachername->password = generateRandomPassword(10);
     }
     
     R::store($teachername);
