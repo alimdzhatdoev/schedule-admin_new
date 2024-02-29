@@ -139,13 +139,27 @@ foreach ($DB_mass as $key => $data) {
 
 
 $itemsMass = [];
+$teacherMass = [];
+$auditoriumMass = [];
 
 $items = R::findAll('items');
 foreach($items as $data) {
     array_push($itemsMass, $data->lessonname);
 }
 
-$checkMass = [];
+$teachers = R::findAll('teachers');
+foreach($teachers as $data) {
+    array_push($teacherMass, $data->username);
+}
+
+$auditorium = R::findAll('auditorium');
+foreach($auditorium as $data) {
+    array_push($auditoriumMass, $data->number);
+}
+
+$checkItemMass = [];
+$checkTeachersMass = [];
+$checkAuditoriumMass = [];
 
 foreach ($send as $key => $data) {
     $lesson = R::dispense('lessons');
@@ -159,21 +173,57 @@ foreach ($send as $key => $data) {
 
         if ($k == 'title'){
             if (!in_array($el, $itemsMass)) {
-                array_push($checkMass, $el);
+                array_push($checkItemMass, $el);
+            }
+        }
+
+        if ($k == 'teacher'){
+            if (!in_array($el, $teacherMass)) {
+                array_push($checkTeachersMass, $el);
+            }
+        }
+
+        if ($k == 'auditorium'){
+            if (!in_array($el, $auditoriumMass)) {
+                array_push($checkAuditoriumMass, $el);
             }
         }
     }
     R::store($lesson);
 }
 
-if (count($checkMass) > 0) {
+if (count($checkItemMass) > 0) {
     $lessonname = R::dispense('items');
 
-    foreach ($checkMass as $key => $data) {
+    foreach ($checkItemMass as $key => $data) {
         $lessonname->lessonname = $data;
     }
     
     R::store($lessonname);
+}
+
+if (count($checkTeachersMass) > 0) {
+    $teachername = R::dispense('teachers');
+
+    foreach ($checkTeachersMass as $key => $data) {
+        $teachername->username = $data;
+        $teachername->position = '';
+        $teachername->type = '';
+        $teachername->login = '';
+        $teachername->password = '';
+    }
+    
+    R::store($teachername);
+}
+
+if (count($checkAuditoriumMass) > 0) {
+    $auditoriumname = R::dispense('auditorium');
+
+    foreach ($checkAuditoriumMass as $key => $data) {
+        $auditoriumname->number = $data;
+    }
+    
+    R::store($auditoriumname);
 }
 
 //print_r($send);
