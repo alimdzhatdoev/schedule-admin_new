@@ -16,7 +16,10 @@ export function schedule() {
                     </select>
                     <select name="startDataGroup" id="startDataGroup">
                         <option disabled selected>Выберите группу</option>
-                        // Вытащить из бд группы
+                        <option value="ПИЭ-231">ПИЭ-231</option>
+                        <option value="ПИЮ-231">ПИЮ-231</option>
+                        <option value="ПИ-231">ПИ-231</option>
+                        <option value="ПМИ-231">ПМИ-231</option>
                     </select>
                 </div>
                 <h2>Расписание:</h2>
