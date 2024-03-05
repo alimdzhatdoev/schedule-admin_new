@@ -1,4 +1,32 @@
 export function schedule() {
+
+    loadData('getInstitutes.php', 'startDataInstitute', 'Выберите институт');
+    loadData('getDirections.php', 'startDataDirection', 'Выберите направление');
+    loadData('getGroups.php', 'startDataGroup', 'Выберите группу');
+
+    function loadData(fileName, blockID, disabledText) {
+        fetch('../includes/groups/' + fileName)
+            .then(response => response.json())
+            .then(data => {
+                const selectGroup = document.getElementById(blockID);
+                selectGroup.innerHTML = '';
+    
+                const disabledOption = document.createElement('option');
+                disabledOption.disabled = true;
+                disabledOption.selected = true;
+                disabledOption.textContent = disabledText;
+                selectGroup.appendChild(disabledOption);
+    
+                data.sort().forEach(group => {
+                    const option = document.createElement('option');
+                    option.value = group;
+                    option.textContent = group;
+                    selectGroup.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Ошибка:', error));
+    }
+
     return `
         <section class="schedule">
             <form action="../includes/pushData.php" method="POST">

@@ -1,4 +1,4 @@
-export function groups(){
+export function groups() {
     $(document).ready(function () {
         $.ajax({
             type: 'POST',
@@ -29,7 +29,9 @@ export function groups(){
             }
         });
 
-        $('.showData').on('click', '.deleteGroups', function(){
+        loadDirections();
+
+        $('.showData').on('click', '.deleteGroups', function () {
             let group = $(this).attr('data-group');
 
             $.ajax({
@@ -43,12 +45,36 @@ export function groups(){
                 }
             });
         });
+
+        function loadDirections() {
+            fetch('../includes/groups/getDirections.php')
+                .then(response => response.json())
+                .then(data => {
+                    const selectGroup = document.getElementById('directionsData');
+                    selectGroup.innerHTML = '';
+
+                    const disabledOption = document.createElement('option');
+                    disabledOption.disabled = true;
+                    disabledOption.selected = true;
+                    disabledOption.textContent = 'Выберите направление';
+                    selectGroup.appendChild(disabledOption);
+
+                    data.sort().forEach(group => {
+                        const option = document.createElement('option');
+                        option.value = group;
+                        option.textContent = group;
+                        selectGroup.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Ошибка:', error));
+        }
     });
 
     return `
         <section class="auditorium">
             <form action="../includes/groups/addGroups.php" method="POST" class="addFormSubmit">
                 <h2>Добавить группу</h2>
+                <select name="direction" id="directionsData"></select>
                 <input name="group" type="text" placeholder="Введите группу">
                 <button>Добавить группу</button>
             </form>
@@ -57,5 +83,7 @@ export function groups(){
 
             </div>
         </section>
+        
+        <script type="module" src="js/main.js"></script>
     `;
 }

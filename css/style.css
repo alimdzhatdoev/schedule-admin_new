@@ -678,3 +678,7 @@ nav ul div:hover {
 .dropdown-content .elements:hover {
     background-color: #f4f4f4;
 }
+
+#directionsData{
+    width: 400px;
+}
