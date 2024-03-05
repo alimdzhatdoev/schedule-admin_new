@@ -4,13 +4,7 @@ export function schedule() {
             <form action="../includes/pushData.php" method="POST">
                 <div class="checkStartData">
                     <select name="startDataInstitute" id="startDataInstitute"></select>
-                    <select name="startDataDirection" id="startDataDirection">
-                        <option disabled selected>Выберите направление подготовки</option>
-                        <option value="Прикладная информатика в экономике">Прикладная информатика в экономике</option>
-                        <option value="Прикладная информатика в юриспруденции">Прикладная информатика в юриспруденции</option>
-                        <option value="Прикладная математика и информатика">Прикладная математика и информатика</option>
-                        <option value="Программная инженерия">Программная инженерия</option>
-                    </select>
+                    <select name="startDataDirection" id="startDataDirection"></select>
                     <select name="startDataGroup" id="startDataGroup"></select>
                 </div>
                 <h2>Расписание:</h2>
