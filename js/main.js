@@ -49,12 +49,12 @@ $(document).on('click', '.weekType_types__element', function () {
         $(`[data-check="${changeBlock.dataCheck}"]`).html(type6Change(changeBlock.dataBlock, changeBlock.dataCount))
         $(`[data-check="${blockName}"]`).attr('data-type', 'type6');
     }
-    
+
     if (type == 'type7') {
         $(`[data-check="${changeBlock.dataCheck}"]`).html(type7Change(changeBlock.dataBlock, changeBlock.dataCount))
         $(`[data-check="${blockName}"]`).attr('data-type', 'type7');
     }
-    
+
     if (type == 'type8') {
         $(`[data-check="${changeBlock.dataCheck}"]`).html(type8Change(changeBlock.dataBlock, changeBlock.dataCount))
         $(`[data-check="${blockName}"]`).attr('data-type', 'type8');
@@ -73,10 +73,10 @@ $(document).on('click', '.weekDay_add', function () {
             ${type1Change(block, count)}
         </div>
     `);
-    
-    $(`.${block} .weekData`).each(function(index) {
-        $(this).attr("data-count", index+1);
-        $(this).attr("data-check", `lesson_${index+1}_${block}`);
+
+    $(`.${block} .weekData`).each(function (index) {
+        $(this).attr("data-count", index + 1);
+        $(this).attr("data-check", `lesson_${index + 1}_${block}`);
     });
 
 })
@@ -108,14 +108,35 @@ $(document).on('click', '#addScheduleToDB', function (event) {
 
     let count = 0;
 
-    $("input").each(function() {
+    $("input").each(function () {
         if ($(this).val() === '') {
             count = count + 1;
         }
     });
-    
-    if (startDataInstitute == null || startDataDirection == null || startDataGroup == null || count > 0){
+
+    if (startDataInstitute == null || startDataDirection == null || startDataGroup == null || count > 0) {
         event.preventDefault();
         alert('Заполните все данные');
     }
 });
+
+fetch('../includes/groups/getGroups.php')
+    .then(response => response.json())
+    .then(data => {
+        const selectGroup = document.getElementById('startDataGroup');
+        selectGroup.innerHTML = '';
+
+        const disabledOption = document.createElement('option');
+        disabledOption.disabled = true;
+        disabledOption.selected = true;
+        disabledOption.textContent = 'Выберите группу';
+        selectGroup.appendChild(disabledOption);
+
+        data.sort().forEach(group => {
+            const option = document.createElement('option');
+            option.value = group;
+            option.textContent = group;
+            selectGroup.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Ошибка:', error));
