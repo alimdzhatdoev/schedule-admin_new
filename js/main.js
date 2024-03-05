@@ -120,6 +120,51 @@ $(document).on('click', '#addScheduleToDB', function (event) {
     }
 });
 
+//Институты
+fetch('../includes/groups/getInstitutes.php')
+    .then(response => response.json())
+    .then(data => {
+        const selectGroup = document.getElementById('startDataInstitute');
+        selectGroup.innerHTML = '';
+
+        const disabledOption = document.createElement('option');
+        disabledOption.disabled = true;
+        disabledOption.selected = true;
+        disabledOption.textContent = 'Выберите институт';
+        selectGroup.appendChild(disabledOption);
+
+        data.sort().forEach(group => {
+            const option = document.createElement('option');
+            option.value = group;
+            option.textContent = group;
+            selectGroup.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Ошибка:', error));
+
+//Направления
+fetch('../includes/groups/getDirections.php')
+    .then(response => response.json())
+    .then(data => {
+        const selectGroup = document.getElementById('startDataDirection');
+        selectGroup.innerHTML = '';
+
+        const disabledOption = document.createElement('option');
+        disabledOption.disabled = true;
+        disabledOption.selected = true;
+        disabledOption.textContent = 'Выберите направление';
+        selectGroup.appendChild(disabledOption);
+
+        data.sort().forEach(group => {
+            const option = document.createElement('option');
+            option.value = group;
+            option.textContent = group;
+            selectGroup.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Ошибка:', error));
+
+//Группы
 fetch('../includes/groups/getGroups.php')
     .then(response => response.json())
     .then(data => {
