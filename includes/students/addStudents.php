@@ -13,13 +13,13 @@ $studentsSearch = R::findOne('students', 'username = ?', [$login]);
 
 if (!$studentsSearch) {
     $students = R::dispense('students');
-    $students->username = $username;
-    $students->numzachetka = $numzachetka;
-    $students->groupname = $groupname;
-    $students->subgroup = $subgroup;
-    $students->login = $login;
-    $students->password = $password;
-    $students->type = $type;
+    $students->username = trim($username);
+    $students->numzachetka = trim($numzachetka);
+    $students->groupname = trim($groupname);
+    $students->subgroup = trim($subgroup);
+    $students->login = trim($login);
+    $students->password = trim($password);
+    $students->type = trim($type);
 
     R::store($students);
 }

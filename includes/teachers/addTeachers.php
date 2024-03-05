@@ -11,11 +11,11 @@ $teachersSearch = R::findOne('teachers', 'username = ?', [$login]);
 
 if (!$teachersSearch) {
     $teachers = R::dispense('teachers');
-    $teachers->username = $username;
-    $teachers->position = $position;
-    $teachers->login = $login;
-    $teachers->password = $password;
-    $teachers->type = $type;
+    $teachers->username = trim($username);
+    $teachers->position = trim($position);
+    $teachers->login = trim($login);
+    $teachers->password = trim($password);
+    $teachers->type = trim($type);
 
     R::store($teachers);
 }

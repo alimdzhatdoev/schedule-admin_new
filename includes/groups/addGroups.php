@@ -8,8 +8,8 @@ $groupSearch = R::findOne('groups', 'groupname = ?', [$group]);
 
 if (!$groupSearch) {
     $groupSearch = R::dispense('groups');
-    $groupSearch->groupname = $group;
-    $groupSearch->direction = $direction;
+    $groupSearch->groupname = trim($group);
+    $groupSearch->direction = trim($direction);
 
     R::store($groupSearch);
 }

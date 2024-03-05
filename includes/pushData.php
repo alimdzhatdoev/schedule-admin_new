@@ -138,7 +138,6 @@ foreach ($DB_mass as $key => $data) {
 
 $itemsMass = [];
 $teacherMass = [];
-$auditoriumMass = [];
 
 $items = R::findAll('items');
 foreach($items as $data) {
@@ -150,14 +149,8 @@ foreach($teachers as $data) {
     array_push($teacherMass, $data->username);
 }
 
-$auditorium = R::findAll('auditorium');
-foreach($auditorium as $data) {
-    array_push($auditoriumMass, $data->number);
-}
-
 $checkItemMass = [];
 $checkTeachersMass = [];
-$checkAuditoriumMass = [];
 
 foreach ($send as $key => $data) {
     $lesson = R::dispense('lessons');
@@ -167,23 +160,17 @@ foreach ($send as $key => $data) {
     $lesson->grouptitle = $grouptitle;
     
     foreach ($data as $k => $el) {
-        $lesson->$k = $el;
+        $lesson->$k = trim($el);
 
         if ($k == 'title'){
-            if (!in_array($el, $itemsMass)) {
-                array_push($checkItemMass, $el);
+            if (!in_array(trim($el), $itemsMass)) {
+                array_push($checkItemMass, trim($el));
             }
         }
 
         if ($k == 'teacher'){
-            if (!in_array($el, $teacherMass)) {
-                array_push($checkTeachersMass, $el);
-            }
-        }
-
-        if ($k == 'auditorium'){
-            if (!in_array($el, $auditoriumMass)) {
-                array_push($checkAuditoriumMass, $el);
+            if (!in_array(trim($el), $teacherMass)) {
+                array_push($checkTeachersMass, trim($el));
             }
         }
     }
@@ -210,15 +197,7 @@ if (count($checkTeachersMass) > 0) {
     }
 }
 
-if (count($checkAuditoriumMass) > 0) {
-    foreach ($checkAuditoriumMass as $key => $data) {
-        $auditoriumname = R::dispense('auditorium');
-        $auditoriumname->number = $data;
-        R::store($auditoriumname);
-    }
-}
-
-print_r($send);
-// header("Location: /");
+// print_r($send);
+header("Location: /");
 exit();
 ?>
