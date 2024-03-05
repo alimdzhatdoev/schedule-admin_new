@@ -682,3 +682,11 @@ nav ul div:hover {
 #directionsData{
     width: 400px;
 }
+
+#startDataDirection{
+    display: none;
+}
+
+#startDataGroup{
+    display: none;
+}

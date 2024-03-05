@@ -119,12 +119,3 @@ $(document).on('click', '#addScheduleToDB', function (event) {
         alert('Заполните все данные');
     }
 });
-
-
-//Институты
-
-
-//Направления
-
-
-//Группы

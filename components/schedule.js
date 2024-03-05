@@ -1,31 +1,93 @@
 export function schedule() {
-
-    loadData('getInstitutes.php', 'startDataInstitute', 'Выберите институт');
-    loadData('getDirections.php', 'startDataDirection', 'Выберите направление');
-    loadData('getGroups.php', 'startDataGroup', 'Выберите группу');
-
-    function loadData(fileName, blockID, disabledText) {
+    function loadData(fileName, blockID, disabledText, param1, param2) {
         fetch('../includes/groups/' + fileName)
             .then(response => response.json())
             .then(data => {
                 const selectGroup = document.getElementById(blockID);
                 selectGroup.innerHTML = '';
-    
+
                 const disabledOption = document.createElement('option');
                 disabledOption.disabled = true;
                 disabledOption.selected = true;
                 disabledOption.textContent = disabledText;
                 selectGroup.appendChild(disabledOption);
-    
+
                 data.sort().forEach(group => {
                     const option = document.createElement('option');
                     option.value = group;
                     option.textContent = group;
                     selectGroup.appendChild(option);
                 });
+
             })
             .catch(error => console.error('Ошибка:', error));
     }
+
+    loadData('getInstitutes.php', 'startDataInstitute', 'Выберите институт');
+
+    $(document).ready(function () {
+        $('#startDataInstitute').on('change', function () {
+            var selectedInstitute = $(this).val();
+
+            $('#startDataGroup').empty();
+            $('#startDataGroup').css('display', 'none');
+            $('#startDataDirection').css('display', 'block');
+            
+            $.ajax({
+                url: '../includes/groups/getDirections.php',
+                method: 'GET',
+                data: { institute: selectedInstitute },
+                dataType: 'json',
+                success: function (data) {
+                    const selectGroup = document.getElementById('startDataDirection');
+                    selectGroup.innerHTML = '';
+    
+                    const disabledOption = document.createElement('option');
+                    disabledOption.disabled = true;
+                    disabledOption.selected = true;
+                    disabledOption.textContent = 'Выберите направление';
+                    selectGroup.appendChild(disabledOption);
+
+                    $.each(data, function (index, direction) {
+                        $('#startDataDirection').append('<option value="' + direction + '">' + direction + '</option>');
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Ошибка:', error);
+                }
+            });
+        });
+
+        $('#startDataDirection').on('change', function () {
+            var selectedDirection = $(this).val();
+
+            $('#startDataGroup').css('display', 'block');
+            $.ajax({
+                url: '../includes/groups/getGroups.php',
+                method: 'GET',
+                data: { direction: selectedDirection },
+                dataType: 'json',
+                success: function (data) {
+                    const selectGroup = document.getElementById('startDataGroup');
+                    selectGroup.innerHTML = '';
+    
+                    const disabledOption = document.createElement('option');
+                    disabledOption.disabled = true;
+                    disabledOption.selected = true;
+                    disabledOption.textContent = 'Выберите группу';
+                    selectGroup.appendChild(disabledOption);
+
+                    $.each(data, function (index, group) {
+                        $('#startDataGroup').append('<option value="' + group + '">' + group + '</option>');
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Ошибка:', error);
+                }
+            });
+        });
+    });
+
 
     return `
         <section class="schedule">

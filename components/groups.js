@@ -14,7 +14,7 @@ export function groups() {
                 });
 
                 let html = '';
-                html += '<div class="teachersShow_name">Преподаватели:</div>';
+                html += '<div class="teachersShow_name">Группы:</div>';
                 html += '<div class="teachersShow">';
                 for (let group in groups) {
                     html += '<div class="block_and_delete">';
@@ -50,6 +50,7 @@ export function groups() {
             fetch('../includes/groups/getDirections.php')
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     const selectGroup = document.getElementById('directionsData');
                     selectGroup.innerHTML = '';
 
@@ -61,8 +62,8 @@ export function groups() {
 
                     data.sort().forEach(group => {
                         const option = document.createElement('option');
-                        option.value = group;
-                        option.textContent = group;
+                        option.value = group.direction;
+                        option.textContent = group.direction;
                         selectGroup.appendChild(option);
                     });
                 })
