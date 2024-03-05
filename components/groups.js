@@ -50,7 +50,6 @@ export function groups() {
             fetch('../includes/groups/getDirections.php')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
                     const selectGroup = document.getElementById('directionsData');
                     selectGroup.innerHTML = '';
 
@@ -62,8 +61,8 @@ export function groups() {
 
                     data.sort().forEach(group => {
                         const option = document.createElement('option');
-                        option.value = group.direction;
-                        option.textContent = group.direction;
+                        option.value = group;
+                        option.textContent = group;
                         selectGroup.appendChild(option);
                     });
                 })

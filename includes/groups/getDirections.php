@@ -12,7 +12,7 @@ if (isset($selectedInstitute)){
 $groupsData = array();
 
 foreach($groups as $data) {
-    array_push($groupsData, [$data->direction]);
+    array_push($groupsData, $data->direction);
 }
 
 R::close();

@@ -6,7 +6,7 @@ $groups = R::findAll('institutes');
 $groupsData = array();
 
 foreach($groups as $data) {
-    array_push($groupsData, [$data->institutesname]);
+    array_push($groupsData, $data->institutesname);
 }
 
 R::close();

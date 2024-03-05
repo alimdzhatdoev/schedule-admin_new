@@ -13,7 +13,7 @@ if (isset($selectedDirection)){
 $groupsData = array();
 
 foreach($groups as $data) {
-    array_push($groupsData, [$data->groupname]);
+    array_push($groupsData, $data->groupname);
 }
 
 R::close();
