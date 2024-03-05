@@ -115,13 +115,13 @@ $data_elements = [
 ];
 
 $russianDay = [
-    'monday' => 'Понедельник',
-    'tuesday' => 'Вторник',
-    'wednesday' => 'Среда',
-    'thursday' => 'Четверг',
-    'friday' => 'Пятница',
-    'saturday' => 'Суббота',
-    'sunday' => 'Воскресенье',
+    'monday' => 'monday',
+    'tuesday' => 'tuesday',
+    'wednesday' => 'wednesday',
+    'thursday' => 'thursday',
+    'friday' => 'friday',
+    'saturday' => 'saturday',
+    'sunday' => 'sunday',
 ];
 
 $send = [];
