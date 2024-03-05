@@ -87,7 +87,6 @@ foreach ($days as $day) {
     }
 }
 
-
 $DB_mass = [];
 
 $num_db = 0;
@@ -136,7 +135,6 @@ foreach ($DB_mass as $key => $data) {
         }
     }
 }
-
 
 $itemsMass = [];
 $teacherMass = [];
@@ -193,40 +191,34 @@ foreach ($send as $key => $data) {
 }
 
 if (count($checkItemMass) > 0) {
-    $lessonname = R::dispense('items');
-
     foreach ($checkItemMass as $key => $data) {
+        $lessonname = R::dispense('items');
         $lessonname->lessonname = $data;
+        R::store($lessonname);
     }
-    
-    R::store($lessonname);
 }
 
 if (count($checkTeachersMass) > 0) {
-    $teachername = R::dispense('teachers');
-
     foreach ($checkTeachersMass as $key => $data) {
+        $teachername = R::dispense('teachers');
         $teachername->username = $data;
         $teachername->position = '-';
         $teachername->type = 'преподаватель';
         $teachername->login = strtolower(transliterate($data));
         $teachername->password = generateRandomPassword(10);
+        R::store($teachername);
     }
-    
-    R::store($teachername);
 }
 
 if (count($checkAuditoriumMass) > 0) {
-    $auditoriumname = R::dispense('auditorium');
-
     foreach ($checkAuditoriumMass as $key => $data) {
+        $auditoriumname = R::dispense('auditorium');
         $auditoriumname->number = $data;
+        R::store($auditoriumname);
     }
-    
-    R::store($auditoriumname);
 }
 
-//print_r($send);
-header("Location: /");
+print_r($send);
+// header("Location: /");
 exit();
 ?>
