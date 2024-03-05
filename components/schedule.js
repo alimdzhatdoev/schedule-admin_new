@@ -39,6 +39,7 @@ export function schedule() {
                 data: { institute: selectedInstitute },
                 dataType: 'json',
                 success: function (data) {
+                    data.sort();
                     const selectGroup = document.getElementById('startDataDirection');
                     selectGroup.innerHTML = '';
     
@@ -68,6 +69,7 @@ export function schedule() {
                 data: { direction: selectedDirection },
                 dataType: 'json',
                 success: function (data) {
+                    data.sort();
                     const selectGroup = document.getElementById('startDataGroup');
                     selectGroup.innerHTML = '';
     
