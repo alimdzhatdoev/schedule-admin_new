@@ -19,7 +19,7 @@ export function teachers() {
                 for (let teacher in teachers) {
                     html += '<div class="block_and_delete">';
                     html += '<div class="teachersShow_title moveBlock">' + teachers[teacher] + '</div>';
-                    html += '<div class="teachersShow_title editTeacher" data-teacher="' + teachers[teacher] + '"><img src="../refs/edit.png"></div>';
+                    // html += '<div class="teachersShow_title editTeacher" data-teacher="' + teachers[teacher] + '"><img src="../refs/edit.png"></div>';
                     html += '<div class="teachersShow_title deleteTeacher" data-teacher="' + teachers[teacher] + '"><img src="../refs/delete.png"></div>';
                     html += '</div>';
                 }

@@ -19,7 +19,7 @@ export function students(){
                 for (let student in students) {
                     html += '<div class="block_and_delete">';
                     html += '<div class="teachersShow_title moveBlock">' + students[student] + '</div>';
-                    html += '<div class="teachersShow_title editStudent" data-student="' + students[student] + '"><img src="../refs/edit.png"></div>';
+                    // html += '<div class="teachersShow_title editStudent" data-student="' + students[student] + '"><img src="../refs/edit.png"></div>';
                     html += '<div class="teachersShow_title deleteStudent" data-student="' + students[student] + '"><img src="../refs/delete.png"></div>';
                     html += '</div>';
                 }

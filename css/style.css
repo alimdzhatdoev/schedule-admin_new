@@ -548,6 +548,7 @@ nav ul div:hover {
 
 .teachersShow {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -571,7 +572,7 @@ nav ul div:hover {
 .deleteStudent,
 .deleteGroups {
     position: absolute;
-    right: -10px;
+    right: -8px;
     top: -8px;
     width: 20px;
     height: 20px;
