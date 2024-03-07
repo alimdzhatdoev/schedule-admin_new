@@ -88,6 +88,27 @@ export function schedule() {
                 }
             });
         });
+        
+        $('#startDataGroup').on('change', function () {
+            var selectedGroup = $(this).val();
+
+            $.ajax({
+                url: '../includes/getLessonsGroup.php',
+                method: 'GET',
+                data: { selectedGroup: selectedGroup },
+                dataType: 'json',
+                success: function (data) {
+                    data.sort();
+
+                    $.each(data, function (index, group) {
+                        console.log(group);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Ошибка:', error);
+                }
+            });
+        });
     });
 
 
