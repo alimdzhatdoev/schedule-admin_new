@@ -177,16 +177,19 @@ foreach ($send as $key => $data) {
     R::store($lesson);
 }
 
-if (count($checkItemMass) > 0) {
-    foreach ($checkItemMass as $key => $data) {
+$checkItemMassUnique = array_unique($checkItemMass);
+$checkTeachersMassUnique = array_unique($checkTeachersMass);
+
+if (count($checkItemMassUnique) > 0) {
+    foreach ($checkItemMassUnique as $key => $data) {
         $lessonname = R::dispense('items');
         $lessonname->lessonname = $data;
         R::store($lessonname);
     }
-}
+} 
 
-if (count($checkTeachersMass) > 0) {
-    foreach ($checkTeachersMass as $key => $data) {
+if (count($checkTeachersMassUnique) > 0) {
+    foreach ($checkTeachersMassUnique as $key => $data) {
         $teachername = R::dispense('teachers');
         $teachername->username = $data;
         $teachername->position = '-';
