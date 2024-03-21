@@ -1,9 +1,9 @@
 <?php
 require '../include.php';
 
-$selectedDirection = $_GET['direction'];
 
-if (isset($selectedDirection)){
+if (isset($_GET['direction'])){
+    $selectedDirection = $_GET['direction'];
     $groups = R::find('groups', 'direction = ?', [$selectedDirection]);
 } else {
     $groups = R::findAll('groups');
