@@ -111,9 +111,25 @@ foreach ($dataList as $keySend => $dataSend) {
                 $dataSend['subgroup'] == $dataDB['subgroup']
             )
         ) {
-            echo 'ID сравниваемой записи: ' . $dataSend['id'] . '<br/>';
-            echo 'ID записи с которой сравнили: ' . $dataDB['id'] . '<br/><br/>';
             $comparedPairs[] = [$keySend, $keyDB];
         }
     }
 }
+
+$changeMass = [];
+
+foreach ($comparedPairs as $key => $data) {
+    foreach ($data as $lessonKey => $lessonData) {
+        $lesson = R::load('lessons', $lessonData);
+
+        foreach ($lesson as $lesKey => $lesData) {
+            $changeMass[$key][$lessonKey][$lesKey] = $lesData;
+        }
+    }
+}
+
+$jsonData = json_encode($changeMass);
+
+echo $jsonData;
+
+?>

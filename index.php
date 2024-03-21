@@ -23,6 +23,7 @@
             <li><div class="navPanel" id="teachersLink">Преподаватели</div></li>
             <li><div class="navPanel" id="groupsLink">Группы</div></li>
             <li><div class="navPanel" id="auditoriumLink">Аудитории</div></li>
+            <li><div class="navPanel" id="coincidencesLink">Найти совпадения</div></li>
         </ul>
     </nav>
 

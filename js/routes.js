@@ -3,6 +3,7 @@ import { auditorium } from '../components/auditorium.js';
 import { schedule } from '../components/schedule.js';
 import { teachers } from '../components/teachers.js';
 import { groups } from '../components/groups.js';
+import { coincidences } from '../components/coincidences.js';
 
 window.onload = function () {
     function link(idBlock, link, component) {
@@ -39,6 +40,9 @@ window.onload = function () {
         } else if (window.location.pathname === '/groups') {
             $(".renderSection").html(groups);
             setActiveElement('groupsLink');
+        } else if (window.location.pathname === '/coincidences') {
+            $(".renderSection").html(coincidences);
+            setActiveElement('coincidencesLink');
         }
     }
 
@@ -54,4 +58,5 @@ window.onload = function () {
     link('teachersLink', '/teachers', teachers);
     link('auditoriumLink', '/auditorium', auditorium);
     link('groupsLink', '/groups', groups);
+    link('coincidencesLink', '/coincidences', coincidences);
 }
