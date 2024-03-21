@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     function renderDropdownList(items) {
         dropdownList.innerHTML = '';
-        if (items.length === 0) {
+        if (items.length === 0) { 
           dropdownList.classList.remove('show');
           return;
         }

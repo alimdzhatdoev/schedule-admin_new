@@ -1,9 +1,8 @@
 <?php
 require '../include.php';
 
-$selectedInstitute = $_GET['institute'];
-
-if (isset($selectedInstitute)){
+if (isset($_GET['institute'])) {
+    $selectedInstitute = $_GET['institute'];
     $groups = R::find('directions', 'institute = ?', [$selectedInstitute]);
 } else {
     $groups = R::findAll('directions');
