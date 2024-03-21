@@ -177,7 +177,8 @@ export function coincidences() {
                                 'idElement': idElement
                             },
                             success: function (response) {
-                                console.log(response);
+                                alert(response);
+                                location.reload();
                             }
                         });
                     })
