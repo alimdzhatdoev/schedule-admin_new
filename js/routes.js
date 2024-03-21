@@ -20,8 +20,16 @@ window.onload = function () {
         blocks.each(function (index, block) {
             let id = $(block).attr('id');
             $(`#${id}`).css('border-bottom', '1px solid transparent');
+            $(`#coincidencesLink`).css('background', 'transparent');
+            $(`#coincidencesLink`).css('color', '#000');
         });
-        $(`#${idBlock}`).css('border-bottom', '1px solid #000');
+
+        if (idBlock == 'coincidencesLink') {
+            $(`#coincidencesLink`).css('background', '#2e3181');
+            $(`#coincidencesLink`).css('color', '#fff');
+        } else {
+            $(`#${idBlock}`).css('border-bottom', '1px solid #000');
+        }
     }
 
     function routesData() {
