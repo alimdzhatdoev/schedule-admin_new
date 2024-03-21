@@ -728,7 +728,7 @@ nav ul div:hover {
 .coincidences_data {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
     height: 100%;
 }
 
@@ -738,6 +738,8 @@ nav ul div:hover {
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid #969696;
+    padding: 10px;
 }
 
 .coincidences_item__gap{
@@ -751,7 +753,6 @@ nav ul div:hover {
 
 .coincidences_item__element {
     padding: 5px;
-    border: 1px solid #969696;
 }
 
 .coincidences_item__element span {
@@ -774,9 +775,9 @@ nav ul div:hover {
 
 .coincidences_item__element input{
     width: 100%;
-    height: 28px;
+    height: 27px;
     outline: none;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 .findCoincidence{
@@ -788,4 +789,14 @@ nav ul div:hover {
 .findCoincidence:hover{
     background-color: #2e3181 !important;
     color: #fff !important;
+}
+
+.nonExistent{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
 }
