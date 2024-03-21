@@ -716,6 +716,7 @@ nav ul div:hover {
     flex-direction: column;
     gap: 10px;
     /* height: 100%; */
+    position: relative;
 }
 
 .coincidences_title {
@@ -799,4 +800,16 @@ nav ul div:hover {
     align-items: center;
     font-size: 24px;
     font-weight: 600;
+}
+
+.coincidences_img{
+    width: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.coincidences_img img {
+    width: 100%;
 }
