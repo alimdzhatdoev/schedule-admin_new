@@ -96,6 +96,12 @@ export function schedule() {
         $('#startDataGroup').on('change', function () {
             var selectedGroup = $(this).val();
 
+            var elements = document.querySelectorAll('.weekData');
+
+            elements.forEach(function (element) {
+                element.parentNode.removeChild(element);
+            });
+
             $.ajax({
                 url: '../includes/getLessonsGroup.php',
                 method: 'GET',
@@ -245,66 +251,66 @@ export function schedule() {
 
                             if (les_type == 'type1') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type1">
-                                            ${type1Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type1">
+                                        ${type1Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type2') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type2">
-                                            ${type2Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type2">
+                                        ${type2Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type3') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type3">
-                                            ${type3Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type3">
+                                        ${type3Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type4') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type4">
-                                            ${type4Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type4">
+                                        ${type4Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type5') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type5">
-                                            ${type5Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type5">
+                                        ${type5Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type6') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type6">
-                                            ${type6Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type6">
+                                        ${type6Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type7') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type7">
-                                            ${type7Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type7">
+                                        ${type7Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             if (les_type == 'type8') {
                                 $(`.${day}`).append(`
-                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type8">
-                                            ${type8Change(block, count)}
-                                        </div>
-                                    `);
+                                    <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type8">
+                                        ${type8Change(block, count)}
+                                    </div>
+                                `);
                             }
 
                             count_separation_chislitel = 0;
