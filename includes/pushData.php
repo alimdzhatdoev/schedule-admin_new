@@ -9,7 +9,7 @@ $grouptitle = $schedules['startDataGroup'];
 
 $scheduleLength = count($schedules);
 
-$days = array('monday', 'tuesday', 'wednesday', 'thursday', 'friday');
+$days = array('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
 $daySchedules = array();
 $count = 0;
 

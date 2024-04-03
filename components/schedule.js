@@ -32,17 +32,19 @@ export function schedule() {
             $('#startDataGroup').empty();
             $('#startDataGroup').css('display', 'none');
             $('#startDataDirection').css('display', 'block');
-            
+
             $.ajax({
                 url: '../includes/groups/getDirections.php',
                 method: 'GET',
-                data: { institute: selectedInstitute },
+                data: {
+                    institute: selectedInstitute
+                },
                 dataType: 'json',
                 success: function (data) {
                     data.sort();
                     const selectGroup = document.getElementById('startDataDirection');
                     selectGroup.innerHTML = '';
-    
+
                     const disabledOption = document.createElement('option');
                     disabledOption.disabled = true;
                     disabledOption.selected = true;
@@ -66,13 +68,15 @@ export function schedule() {
             $.ajax({
                 url: '../includes/groups/getGroups.php',
                 method: 'GET',
-                data: { direction: selectedDirection },
+                data: {
+                    direction: selectedDirection
+                },
                 dataType: 'json',
                 success: function (data) {
                     data.sort();
                     const selectGroup = document.getElementById('startDataGroup');
                     selectGroup.innerHTML = '';
-    
+
                     const disabledOption = document.createElement('option');
                     disabledOption.disabled = true;
                     disabledOption.selected = true;
@@ -88,27 +92,237 @@ export function schedule() {
                 }
             });
         });
-        
+
         $('#startDataGroup').on('change', function () {
             var selectedGroup = $(this).val();
 
             $.ajax({
                 url: '../includes/getLessonsGroup.php',
                 method: 'GET',
-                data: { selectedGroup: selectedGroup },
+                data: {
+                    selectedGroup: selectedGroup
+                },
                 dataType: 'json',
                 success: function (data) {
                     data.sort();
 
-                    $.each(data, function (index, group) {
-                        console.log(group);
+                    let days = {
+                        'monday': 'monday',
+                        'tuesday': 'tuesday',
+                        'wednesday': 'wednesday',
+                        'thursday': 'thursday',
+                        'friday': 'friday',
+                        'saturday': 'saturday',
+                        'sunday': 'sunday',
+                    };
+
+                    let mass = {
+                        'monday': [],
+                        'tuesday': [],
+                        'wednesday': [],
+                        'thursday': [],
+                        'friday': [],
+                        'saturday': [],
+                        'sunday': [],
+                    };
+
+                    $.each(days, function (index, day) {
+                        // Сначала создаем массивы для каждой пары
+                        for (let i = 1; i <= 8; i++) {
+                            mass[day].push([]);
+                        }
+
+                        // Заполняем массивы объектами
+                        $.each(data, function (index, group) {
+                            if (group.weekday == day) {
+                                mass[day][parseInt(group.number) - 1].push(group);
+                            }
+                        });
+
+                        // Удаляем пустые массивы
+                        mass[day] = mass[day].filter(function (array) {
+                            return array.length > 0;
+                        });
+
+                        let count_separation_chislitel = 0;
+                        let count_separation_znamenatel = 0;
+                        let count_subgroup_podgruppa1 = 0;
+                        let count_subgroup_podgruppa2 = 0;
+
+                        let les_type = '';
+
+                        $.each(mass[day], function (index, lesson) {
+                            $.each(lesson, function (index, les) {
+                                if (les['separation'] == 'числитель') {
+                                    count_separation_chislitel++;
+                                }
+                                if (les['separation'] == 'знаменатель') {
+                                    count_separation_znamenatel++;
+                                }
+                                if (les['subgroup'] == '1') {
+                                    count_subgroup_podgruppa1++;
+                                }
+                                if (les['subgroup'] == '2') {
+                                    count_subgroup_podgruppa2++;
+                                }
+                            })
+
+                            if (
+                                count_separation_chislitel == 0 &&
+                                count_separation_znamenatel == 0 &&
+                                count_subgroup_podgruppa1 == 0 &&
+                                count_subgroup_podgruppa2 == 0
+                            ) {
+                                les_type = 'type1'
+                            }
+
+                            if (
+                                count_separation_chislitel == 0 &&
+                                count_separation_znamenatel == 0 &&
+                                count_subgroup_podgruppa1 == 1 &&
+                                count_subgroup_podgruppa2 == 1
+                            ) {
+                                les_type = 'type2'
+                            }
+
+                            if (
+                                count_separation_chislitel == 1 &&
+                                count_separation_znamenatel == 1 &&
+                                count_subgroup_podgruppa1 == 0 &&
+                                count_subgroup_podgruppa2 == 0
+                            ) {
+                                les_type = 'type3'
+                            }
+
+                            if (
+                                count_separation_chislitel == 2 &&
+                                count_separation_znamenatel == 1 &&
+                                count_subgroup_podgruppa1 == 1 &&
+                                count_subgroup_podgruppa2 == 1
+                            ) {
+                                les_type = 'type4'
+                            }
+
+                            if (
+                                count_separation_chislitel == 1 &&
+                                count_separation_znamenatel == 2 &&
+                                count_subgroup_podgruppa1 == 1 &&
+                                count_subgroup_podgruppa2 == 1
+                            ) {
+                                les_type = 'type5'
+                            }
+
+                            if (
+                                count_separation_chislitel == 2 &&
+                                count_separation_znamenatel == 2 &&
+                                count_subgroup_podgruppa1 == 2 &&
+                                count_subgroup_podgruppa2 == 2
+                            ) {
+                                les_type = 'type6'
+                            }
+
+                            if (
+                                count_separation_chislitel == 1 &&
+                                count_separation_znamenatel == 1 &&
+                                count_subgroup_podgruppa1 == 2 &&
+                                count_subgroup_podgruppa2 == 1
+                            ) {
+                                les_type = 'type7'
+                            }
+
+                            if (
+                                count_separation_chislitel == 1 &&
+                                count_separation_znamenatel == 1 &&
+                                count_subgroup_podgruppa1 == 1 &&
+                                count_subgroup_podgruppa2 == 2
+                            ) {
+                                les_type = 'type8'
+                            }
+
+
+                            let count = index + 1;
+                            let block = day;
+
+                            if (les_type == 'type1') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type1">
+                                            ${type1Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type2') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type2">
+                                            ${type2Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type3') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type3">
+                                            ${type3Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type4') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type4">
+                                            ${type4Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type5') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type5">
+                                            ${type5Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type6') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type6">
+                                            ${type6Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type7') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type7">
+                                            ${type7Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            if (les_type == 'type8') {
+                                $(`.${day}`).append(`
+                                        <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type8">
+                                            ${type8Change(block, count)}
+                                        </div>
+                                    `);
+                            }
+
+                            count_separation_chislitel = 0;
+                            count_separation_znamenatel = 0;
+                            count_subgroup_podgruppa1 = 0;
+                            count_subgroup_podgruppa2 = 0;
+                        })
                     });
+
+                    console.log(mass);
                 },
                 error: function (xhr, status, error) {
                     console.error('Ошибка:', error);
                 }
             });
         });
+
+
     });
 
 
@@ -227,7 +441,8 @@ export function schedule() {
                 </div>
             </div>
         </section>
-        
-        <script type="module" src="js/main.js"></script>
+
+        <script src="js/types.js"></script>
+        <script src="js/main.js"></script>
     `;
 }
