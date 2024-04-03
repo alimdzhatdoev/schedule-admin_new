@@ -144,6 +144,15 @@ export function schedule() {
                                 mass[day][parseInt(group.number) - 1].push(group);
                             }
                         });
+                        
+                        $('.weekType_types__element').css({
+                            backgroundColor: 'transparent', 
+                            pointerEvents: 'none', 
+                            border: '1px solid rgb(46, 49, 129)'
+                        })
+                        $('.type_element').css({ 
+                            border: '1px solid rgb(46, 49, 129)'
+                        })
 
                         // Удаляем пустые массивы
                         mass[day] = mass[day].filter(function (array) {
@@ -255,6 +264,32 @@ export function schedule() {
                                         ${type1Change(block, count)}
                                     </div>
                                 `);
+
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separate'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separate'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type2') {
@@ -263,6 +298,32 @@ export function schedule() {
                                         ${type2Change(block, count)}
                                     </div>
                                 `);
+
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separate'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separate'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type3') {
@@ -271,6 +332,32 @@ export function schedule() {
                                         ${type3Change(block, count)}
                                     </div>
                                 `);
+
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separation'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separation'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type4') {
@@ -279,6 +366,32 @@ export function schedule() {
                                         ${type4Change(block, count)}
                                     </div>
                                 `);
+                                
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separation'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separation'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type5') {
@@ -287,6 +400,32 @@ export function schedule() {
                                         ${type5Change(block, count)}
                                     </div>
                                 `);
+                                
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separation'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separation'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type6') {
@@ -295,6 +434,32 @@ export function schedule() {
                                         ${type6Change(block, count)}
                                     </div>
                                 `);
+                                
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separation'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separation'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type7') {
@@ -303,6 +468,32 @@ export function schedule() {
                                         ${type7Change(block, count)}
                                     </div>
                                 `);
+                                
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separation'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separation'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             if (les_type == 'type8') {
@@ -311,16 +502,50 @@ export function schedule() {
                                         ${type8Change(block, count)}
                                     </div>
                                 `);
+                                
+                                $.each(lesson, function (index, les) {
+                                    let subgroup = 'subgroup0';
+                                    let separate = 'noSeparate';
+
+                                    if (les['subgroup'] == '1') {
+                                        subgroup = 'subgroup1';
+                                    }
+                                    if (les['subgroup'] == '2') {
+                                        subgroup = 'subgroup2';
+                                    }
+
+                                    if (les['separation'] == "числитель") {
+                                        separate = 'chislitel';
+                                    }
+                                    if (les['separation'] == "знаменатель") {
+                                        separate = 'znamenatel';
+                                    }
+
+                                    $(`[name="${day}_number_${count}"]`).val(les['number']);
+
+                                    $(`#${day}_title_${count}_${subgroup}_${separate}`).val(les['title']);
+                                    $(`#${day}_teacher_${count}_${subgroup}_${separate}`).val(les['teacher']);
+                                    $(`#${day}_auditorium_${count}_${subgroup}_${separate}`).val(les['auditorium']);
+                                    $(`#${day}_type_${count}_${subgroup}_${separate}`).val(les['type']);
+                                })
                             }
 
                             count_separation_chislitel = 0;
                             count_separation_znamenatel = 0;
                             count_subgroup_podgruppa1 = 0;
                             count_subgroup_podgruppa2 = 0;
+
+
+
+                            // monday_title_1_subgroup0_noSeparate
+
                         })
+
+
                     });
 
                     console.log(mass);
+
                 },
                 error: function (xhr, status, error) {
                     console.error('Ошибка:', error);
