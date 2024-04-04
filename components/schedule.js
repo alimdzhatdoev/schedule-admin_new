@@ -669,6 +669,7 @@ export function schedule() {
                             <div class="type_element type6_block"></div>
                         </div>
                     </div>
+                    <div class="deleteLineButtonBlock">Удалить строку</div>
                 </div>
             </div>
         </section>

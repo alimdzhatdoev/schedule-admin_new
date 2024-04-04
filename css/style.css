@@ -813,3 +813,16 @@ nav ul div:hover {
 .coincidences_img img {
     width: 100%;
 }
+
+.deleteLineButtonBlock{
+    background-color: #FC0005;
+    color: #fff;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+}

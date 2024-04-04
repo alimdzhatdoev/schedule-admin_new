@@ -68,6 +68,7 @@ $(document).on('click', '.weekDay_add', function () {
     $(`.${block} .weekData`).each(function (index) {
         $(this).attr("data-count", index + 1);
         $(this).attr("data-check", `lesson_${index + 1}_${block}`);
+        $('.weekData_number', this).attr('name', `${block}_number_${index + 1}`);
     });
 
 })
@@ -88,6 +89,10 @@ $(document).on('click', '.weekData', function () {
     data.dataCheck = $(this).attr("data-check");
     data.dataCount = $(this).attr("data-count");
     data.dataBlock = $(this).attr("data-block");
+
+    $(".deleteLineButtonBlock").css('display', 'flex');
+    $(".deleteLineButtonBlock").attr('data-delete', $(this).attr("data-check"));
+    $(".deleteLineButtonBlock").attr('data-block', $(this).attr("data-block"));
 
     localStorage.setItem('block', JSON.stringify(data));
 });
@@ -110,3 +115,16 @@ $(document).on('click', '#addScheduleToDB', function (event) {
         alert('Заполните все данные');
     }
 });
+
+$(document).on('click', '.deleteLineButtonBlock', function () {
+    let dataDelete = $(this).attr("data-delete");
+    let block = $(this).attr("data-block");
+
+    $(`[data-check=${dataDelete}`).remove();
+
+    $(`.${block} .weekData`).each(function (index) {
+        $(this).attr("data-count", index + 1);
+        $(this).attr("data-check", `lesson_${index + 1}_${block}`);
+        $('.weekData_number', this).attr('name', `${block}_number_${index + 1}`);
+    });
+})
