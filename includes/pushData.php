@@ -9,6 +9,8 @@ $grouptitle = $schedules['startDataGroup'];
 
 $scheduleLength = count($schedules);
 
+R::hunt('lessons', 'grouptitle = ?', [$grouptitle]);
+
 $days = array('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
 $daySchedules = array();
 $count = 0;

@@ -1,12 +1,3 @@
-let counts = {
-    monday: 0,
-    tuesday: 0,
-    wednesday: 0,
-    thursday: 0,
-    friday: 0,
-    saturday: 0
-};
-
 $(document).on('click', '.weekType_types__element', function () {
     let changeBlock = JSON.parse(localStorage['block']);
 
@@ -64,9 +55,9 @@ $(document).on('click', '.weekType_types__element', function () {
 $(document).on('click', '.weekDay_add', function () {
     let block = $(this).attr("data-element");
 
-    counts[block] += 1;
+    let blocksCount = $(`.${block}`).children().length;
 
-    let count = counts[block];
+    let count = blocksCount;
 
     $(`.${block}`).append(`
         <div class="weekData" data-check="lesson_${count}_${block}" data-count="${count}" data-block="${block}" data-type="type1">
